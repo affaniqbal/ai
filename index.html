@@ -3,189 +3,61 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Your Studio</title>
-  <meta name="description" content="One sentence about what you do.">
+  <title>Affan Iqbal</title>
+  <meta name="description" content="Affan Iqbal: physicist, interested in AI beyond large language models.">
 
-  <!-- Computer Modern (the LaTeX serif) + IBM Plex Mono -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/aaaakshat/cm-web-fonts@latest/fonts.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&display=swap">
-
-  <style>
-    :root {
-      --bg: #ffffff;
-      --text: #333333;
-      --ink: #000000;
-      --muted: #777777;
-      --panel: #f6f6f6;
-      --chip: #f3f3f3;
-      --serif: "Computer Modern Serif", "Latin Modern Roman", "Times New Roman", Times, serif;
-      --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
-      --width: 640px;
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #111111;
-        --text: #d4d4d4;
-        --ink: #ffffff;
-        --muted: #8a8a8a;
-        --panel: #1a1a1a;
-        --chip: #222222;
-      }
-    }
-
-    * { box-sizing: border-box; }
-    html { -webkit-text-size-adjust: 100%; }
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--serif);
-      font-size: 17px;
-      line-height: 1.45;
-    }
-    a { color: inherit; text-decoration: none; }
-
-    .wrap {
-      max-width: var(--width);
-      margin: 0 auto;
-      padding: 0 16px;
-    }
-
-    /* ---- Hero ---- */
-    header { text-align: center; padding: 72px 0 88px; }
-    .logo { width: 88px; height: 64px; color: var(--ink); }
-    h1 {
-      margin: 64px 0 0;
-      font-weight: 400;
-      font-variant: small-caps;
-      font-size: clamp(28px, 5.2vw, 44px);
-      letter-spacing: 0.01em;
-      color: var(--ink);
-    }
-
-    /* ---- Info row ---- */
-    .info {
-      display: grid;
-      grid-template-columns: repeat(3, auto);
-      justify-content: space-between;
-      gap: 24px;
-      margin-bottom: 48px;
-    }
-    .info h2 {
-      margin: 0 0 10px;
-      font-size: 14px;
-      font-weight: 400;
-      color: var(--ink);
-    }
-    .chip {
-      display: inline-block;
-      padding: 4px 6px;
-      border-radius: 4px;
-      background: var(--chip);
-      color: var(--muted);
-      font-family: var(--mono);
-      font-size: 11px;
-      transition: color .15s;
-    }
-    a.chip:hover { color: var(--ink); }
-
-    /* ---- Main panel ---- */
-    main {
-      background: var(--panel);
-      padding: 36px 48px 44px;
-    }
-    main h2 {
-      margin: 0 0 28px;
-      text-align: center;
-      font-size: 17px;
-      color: var(--ink);
-    }
-    main p {
-      margin: 0 0 18px;
-      text-align: justify;
-      hyphens: auto;
-    }
-    .links {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 6px;
-      margin-top: 28px;
-    }
-    .links .sep { color: var(--muted); font-size: 13px; }
-
-    footer {
-      text-align: center;
-      padding: 72px 0 40px;
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    @media (max-width: 600px) {
-      header { padding: 48px 0 56px; }
-      h1 { margin-top: 40px; }
-      .info { grid-template-columns: 1fr; gap: 18px; }
-      main { padding: 28px 20px 32px; margin: 0 -16px; }
-      main p { text-align: left; }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="wrap">
 
     <header>
-      <!-- Swap for your own logo (SVG keeps it crisp) -->
-      <svg class="logo" viewBox="0 0 88 64" fill="currentColor" aria-label="Logo">
-        <rect x="0"  y="0"  width="24" height="64"/>
-        <rect x="32" y="20" width="24" height="24"/>
-        <rect x="64" y="0"  width="24" height="64"/>
+      <!-- "AI" monogram: Affan Iqbal -->
+      <svg class="logo" viewBox="0 0 72 64" fill="currentColor" aria-label="AI">
+        <polygon points="0,64 18,0 34,0 52,64 38,64 26,20 14,64"/>
+        <rect x="18" y="38" width="16" height="10"/>
+        <rect x="58" y="0" width="14" height="64"/>
       </svg>
-      <h1>Simple Things. Built Well.</h1>
+      <h1>Affan Iqbal</h1>
+      <p class="tagline">Physicist. Interested in AI beyond language.</p>
     </header>
 
     <section class="info">
       <div>
         <h2>Contact</h2>
-        <a class="chip" href="mailto:hello@example.com">hello@example.com</a>
+        <a class="chip" href="mailto:a.n.iqbal@hotmail.com">a.n.iqbal@hotmail.com</a>
       </div>
       <div>
-        <h2>Hiring</h2>
-        <a class="chip" href="#">example.com/jobs</a>
-      </div>
-      <div>
-        <h2>Locations</h2>
-        <span class="chip">London + Remote</span>
+        <h2>GitHub</h2>
+        <a class="chip" href="https://github.com/affaniqbal">github.com/affaniqbal</a>
       </div>
     </section>
 
     <main>
-      <h2>Your Studio</h2>
+      <h2>About</h2>
 
-      <p>A short opening that states what you are building and why it matters, in one or two plain sentences.</p>
+      <p>I'm Affan, a trained physicist with an interest in artificial intelligence beyond large language models.</p>
 
-      <p>A paragraph about the problem. Keep the language concrete: who has it, what it costs them, and why the current ways of solving it fall short.</p>
+      <p>This site is where I collect notes on the ideas I'm exploring.</p>
 
-      <p>A paragraph about your approach. What you are doing differently, and the one idea everything else rests on.</p>
-
-      <p>A paragraph about where it applies: the people, industries or situations where your work makes the biggest difference.</p>
-
-      <p>A sentence or two about the team behind it.</p>
-
-      <p>If this sounds interesting, get in touch:</p>
+      <h3>Notes</h3>
+      <ul class="pages">
+        <!-- Add one line per page, newest first:
+        <li><a href="notes/my-topic.html">Title of the page</a><span class="date">2026-09</span></li>
+        -->
+        <li class="empty">Coming soon.</li>
+      </ul>
 
       <nav class="links">
-        <a class="chip" href="mailto:hello@example.com">Contact</a>
+        <a class="chip" href="mailto:a.n.iqbal@hotmail.com">Email</a>
         <span class="sep">|</span>
-        <a class="chip" href="#">Hiring</a>
-        <span class="sep">|</span>
-        <a class="chip" href="#">Press</a>
-        <span class="sep">|</span>
-        <a class="chip" href="#">Updates</a>
+        <a class="chip" href="https://github.com/affaniqbal">GitHub</a>
       </nav>
     </main>
 
-    <footer>Your Studio &copy; 2026</footer>
+    <footer>Affan Iqbal &copy; 2026</footer>
 
   </div>
 </body>
