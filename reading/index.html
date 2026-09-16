@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reading · Affan Iqbal</title>
+  <meta name="description" content="Things I've read, analysed, and linked together.">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/aaaakshat/cm-web-fonts@latest/fonts.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&display=swap">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="reading.css">
+</head>
+<body>
+  <div class="wrap">
+
+    <nav class="topnav">
+      <a class="chip" href="../">&larr; Affan Iqbal</a>
+      <span class="chip" id="count"></span>
+    </nav>
+
+    <header class="reading-head">
+      <h1>Reading</h1>
+      <p>Things I've read, analysed, and linked together. Drag a node, or pick an entry.</p>
+    </header>
+
+    <div class="graph-frame">
+      <svg id="graph" aria-label="Knowledge graph of reading entries"></svg>
+      <div class="graph-hint">click a filled node to open it</div>
+    </div>
+
+    <ul class="entry-list" id="list"></ul>
+
+  </div>
+
+  <div class="scrim" id="scrim"></div>
+  <aside class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer-inner" id="drawer-inner"></div>
+  </aside>
+
+  <footer style="text-align:center;padding:56px 0 40px;font-size:12px;color:var(--muted)">
+    Affan Iqbal &copy; 2026
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
