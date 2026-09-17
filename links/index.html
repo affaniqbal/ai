@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Links · Affan Iqbal</title>
+  <meta name="description" content="Links worth keeping, with my notes.">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/aaaakshat/cm-web-fonts@latest/fonts.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&display=swap">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="links.css">
+</head>
+<body>
+  <div class="wrap">
+
+    <nav class="topnav">
+      <a class="chip" href="../">&larr; Affan Iqbal</a>
+      <span class="chip" id="count"></span>
+    </nav>
+
+    <header class="links-head">
+      <h1>Links</h1>
+      <p>Things I've read and think are worth keeping. The notes are mine.</p>
+    </header>
+
+    <input type="text" id="search" class="search" placeholder="Search titles, tags, notes…" autocomplete="off">
+    <div class="tagbar" id="tagbar"></div>
+
+    <ul class="link-list" id="list"></ul>
+    <p class="empty" id="empty" hidden>Nothing here yet.</p>
+
+  </div>
+
+  <footer style="text-align:center;padding:56px 0 40px;font-size:12px;color:var(--muted)">
+    Affan Iqbal &copy; 2026
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
