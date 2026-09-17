@@ -48,6 +48,7 @@
       var li = document.createElement("li");
       li.className = "link-item";
       var tagHtml = (it.tags || []).map(function (t) { return '<button data-tag="' + t + '">' + t + "</button>"; }).join("");
+      function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
       li.innerHTML =
         '<div class="head">' +
           '<a class="title" href="' + it.url + '" target="_blank" rel="noopener">' + it.title + "</a>" +
@@ -55,7 +56,8 @@
         "</div>" +
         '<div class="meta">' + (it.domain || "") + (it.status ? '  ·  <span class="status">' + it.status + "</span>" : "") + "</div>" +
         (tagHtml ? '<div class="tags">' + tagHtml + "</div>" : "") +
-        '<div class="notes">' + it.notesHtml + "</div>";
+        (it.summary ? '<p class="summary">' + esc(it.summary) + "</p>" : "") +
+        (it.notesHtml ? '<div class="notes">' + it.notesHtml + "</div>" : "");
       li.querySelectorAll(".tags button").forEach(function (b) {
         b.onclick = function () { state.tag = b.getAttribute("data-tag"); render(); window.scrollTo({ top: 0, behavior: "smooth" }); };
       });

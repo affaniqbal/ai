@@ -34,6 +34,7 @@
   background: var(--chip); border: 0; border-radius: 4px; padding: 3px 7px; cursor: pointer;
 }
 .link-item .tags button:hover { color: var(--ink); }
+.link-item .summary { margin: 10px 0 0; color: var(--muted); font-style: italic; }
 .link-item .notes { margin-top: 10px; }
 .link-item .notes p { margin: 0 0 10px; text-align: left; }
 .link-item .notes a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--muted); text-underline-offset: 2px; }
