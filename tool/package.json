@@ -1,0 +1,10 @@
+{
+  "name": "notes-tool",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Local build + publish for the Notes site. Never published.",
+  "type": "commonjs",
+  "dependencies": {
+    "marked": "^14.1.3"
+  }
+}
