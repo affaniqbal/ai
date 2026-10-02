@@ -10,12 +10,11 @@
 <nav class="topnav"><a class="chip" href="./">&larr; Notes</a><a class="chip" href="../">Affan Iqbal</a></nav>
 <article class="note">
 <h1>JEPA</h1>
-<p class="note-meta">2026-10-02 · jepa · world models</p>
-<p>JEPA stands for Joint Embedding Predictive Architecture. It was proposed in 2022 by Yann LeCun, the French-American computer scientist, while he was chief AI scientist at Meta&#39;s FAIR lab.</p>
-<p>The core idea is to predict in representation space rather than in pixel space, which is the common approach in video / image generative AI today. </p>
-<p>The approach JEPA takes is that instead of  reconstructing the missing part of an input in full detail (i.e. pixel by pixel), a JEPA model predicts an abstract &quot;embedding&quot; of it, which lets it ignore details that are unpredictable or irrelevant.</p>
-<p>Meta has since released versions for images (I-JEPA) and video
-(<a href="https://ai.meta.com/research/vjepa/">V-JEPA</a>).</p>
+<p class="note-meta">2026-10-02 · jepa · world-models</p>
+<p>JEPA stands for Joint Embedding Predictive Architecture. It was proposed in 2022 by Yann LeCun, the French-American computer scientist, while he was chief AI scientist at Meta&#39;s FAIR lab. The original proposal is his position paper <a href="https://openreview.net/forum?id=BZ5a1r-kVsf">A Path Towards Autonomous Machine Intelligence</a>.</p>
+<p>The core idea is to predict in representation space rather than pixel space. Most generative image and video models today reconstruct the missing part of an input pixel by pixel. A JEPA model instead predicts an abstract embedding of it, which lets it ignore details that are unpredictable or irrelevant.</p>
+<p>This matters for world models. A system that has to plan needs to predict what will happen next, but not every pixel of it. Predicting in an abstract space is LeCun&#39;s proposed route to models that understand how the world behaves well enough to plan in it, rather than only generating plausible output.</p>
+<p>Meta has since released versions for images (<a href="https://arxiv.org/abs/2301.08243">I-JEPA</a>) and video (<a href="https://arxiv.org/abs/2404.08471">V-JEPA</a>, then <a href="https://arxiv.org/abs/2506.09985">V-JEPA 2</a>).</p>
 
 </article>
 </div>
