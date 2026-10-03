@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>World models · Affan Iqbal</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/aaaakshat/cm-web-fonts@latest/fonts.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="notes.css">
+</head><body><div class="wrap">
+<nav class="topnav"><a class="chip" href="./">&larr; Notes</a><a class="chip" href="../">Affan Iqbal</a></nav>
+<article class="note">
+<h1>World models</h1>
+<p class="note-meta">2026-10-03 · world-models</p>
+<p>A world model is a system that learns how an environment behaves, so it can predict what will happen next, often in response to an action. The term covers very different things: a video generator, a physics surrogate and a robot&#39;s planner all get called world models. This note is the map. The detail lives in the notes it links to: <a href="jepa.html">JEPA</a> and <a href="simulation.html">Simulation</a>.</p>
+<h2>Three jobs: render, simulate, plan</h2>
+<p>Fei-Fei Li and World Labs sort world models by what they output. The setting is the classic agent loop: an agent observes the world, acts, and the world moves to a new state. The agent never sees the full state, only partial and noisy observations of it. This is formalised as a partially observable Markov decision process (POMDP, see <a href="abbreviations.html">abbreviations</a>).</p>
+<ul>
+<li><strong>Renderer.</strong> Maps state to observation. It outputs pixels for human eyes and is judged on visual fidelity.</li>
+<li><strong>Simulator.</strong> Maps state to next state. It outputs physically faithful state that a program can compute on.</li>
+<li><strong>Planner.</strong> Outputs the actions an agent should take.</li>
+</ul>
+<p>The categories are starting to blend. Marble, World Labs&#39; first product, outputs Gaussian splats for visual exploration, which is rendering, plus collision meshes that a physics engine can operate on, which is a hook into simulation. Today it is a mature renderer with a bridge into simulation, not yet a full simulator.</p>
+<p>The simulator in this taxonomy is also still flavoured by 3D geometry: cups on tables. The bridge from there to simulating an industrial process is not automatic. <a href="simulation.html">Simulation</a> covers that side.</p>
+<h2>The main approaches</h2>
+<p>The approaches differ in what they predict.</p>
+<p><strong>Generative video models</strong> predict future frames in pixels. Google DeepMind&#39;s <a href="https://deepmind.google/blog/genie-3-a-new-frontier-for-world-models/">Genie 3</a> (August 2025) generates a world from a text prompt that a user can move through in real time, at 720p and 24 frames per second, for a few minutes at a time. OpenAI&#39;s Sora report was titled <a href="https://openai.com/index/video-generation-models-as-world-simulators/">Video generation models as world simulators</a> (2024), and NVIDIA&#39;s open <a href="https://arxiv.org/abs/2501.03575">Cosmos</a> models (2025) generate video for training robots and self-driving cars.</p>
+<p><strong>Spatial, 3D world models</strong> are the focus of World Labs, the startup founded by Fei-Fei Li (creator of ImageNet) with Justin Johnson, Christoph Lassner and Ben Mildenhall. Its first product, <a href="https://www.worldlabs.ai/blog/marble-world-model">Marble</a>, became generally available in November 2025. It turns text, images or video into persistent 3D environments that can be walked through, edited and exported as Gaussian splats or meshes. Li frames this as spatial intelligence: language models taught machines to read and write, and these models should teach them to see and build in three dimensions.</p>
+<p><strong>Latent world models</strong> compress each observation (a video frame, say) into a small embedding, called a latent state, and learn how that state changes over time and in response to actions. &quot;Latent&quot; just means hidden: the model&#39;s internal summary rather than the raw pixels. An agent can then plan or practise by imagining futures inside this compact space, which is far cheaper than rendering every frame. The idea goes back to Ha and Schmidhuber&#39;s <a href="https://arxiv.org/abs/1803.10122">World Models</a> (2018) and continues in Danijar Hafner&#39;s Dreamer series. <a href="https://www.nature.com/articles/s41586-025-08744-2">DreamerV3</a> (Nature, 2025) was the first algorithm to collect diamonds in Minecraft from scratch, and <a href="https://arxiv.org/abs/2509.24527">Dreamer 4</a> (2025) did it purely from recorded gameplay, without ever playing the game itself.</p>
+<p><strong>JEPA</strong> models are latent world models too. The difference is how the latent space is learned: Dreamer-style models usually learn it by also reconstructing the pixels, while JEPA learns it by prediction alone. See <a href="jepa.html">JEPA</a>.</p>
+<p><strong>Learned physics simulators</strong> predict the state variables of a physical system, such as a flow field or the temperatures in a reactor, rather than images of it. They come from scientific computing more than from video or robotics, and they are judged on whether the physics is right. See <a href="simulation.html">Simulation</a>.</p>
+<p>The generative approaches render the world. JEPA bets that a model only needs to predict an abstract summary of it. Learned simulators have to get the state itself right.</p>
+
+</article>
+</div>
+<footer style="text-align:center;padding:56px 0 40px;font-size:12px;color:var(--muted)">Affan Iqbal &copy; 2026</footer>
+</body></html>

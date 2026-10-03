@@ -8,7 +8,7 @@ tags: [reading-list, world-models]
 
 *Opening: who this list is for and how it is ordered.*
 
-Much of it centres on [JEPA](jepa.html) (Joint Embedding Predictive Architecture), Yann LeCun's proposal for learning by predicting abstract representations.
+It follows the map in [World models](world-models.html). Much of it centres on [JEPA](jepa.html) (Joint Embedding Predictive Architecture), Yann LeCun's proposal for learning by predicting abstract representations.
 
 ## Start here
 
@@ -32,6 +32,14 @@ Much of it centres on [JEPA](jepa.html) (Joint Embedding Predictive Architecture
 - [Genie 3](https://deepmind.google/blog/genie-3-a-new-frontier-for-world-models/) (Google DeepMind, 2025). *One or two lines.*
 - [Cosmos](https://arxiv.org/abs/2501.03575) (NVIDIA, 2025). *One or two lines.*
 - [Marble](https://www.worldlabs.ai/blog/marble-world-model) (World Labs, 2025). *One or two lines.*
+
+## Learned simulation
+
+- [Physics-informed neural networks](https://doi.org/10.1016/j.jcp.2018.10.045) (Raissi, Perdikaris & Karniadakis, 2019). *One or two lines.*
+- [DeepONet](https://arxiv.org/abs/1910.03193) (2019). *One or two lines.*
+- [Fourier Neural Operator](https://arxiv.org/abs/2010.08895) (2020). *One or two lines.*
+- [Learning to Simulate](https://arxiv.org/abs/2002.09405) (Google DeepMind, 2020). *One or two lines.*
+- [MeshGraphNets](https://arxiv.org/abs/2010.03409) (Google DeepMind, 2020). *One or two lines.*
 
 ## Background
 

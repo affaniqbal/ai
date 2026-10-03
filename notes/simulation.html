@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simulation · Affan Iqbal</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/aaaakshat/cm-web-fonts@latest/fonts.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="notes.css">
+</head><body><div class="wrap">
+<nav class="topnav"><a class="chip" href="./">&larr; Notes</a><a class="chip" href="../">Affan Iqbal</a></nav>
+<article class="note">
+<h1>Simulation</h1>
+<p class="note-meta">2026-10-03 · simulation · world-models</p>
+<p>Of the three jobs a <a href="world-models.html">world model</a> can do (render, simulate, plan), simulation is the one that has to get the physics right. A simulator predicts how the state of a system evolves over time, and outputs that state in a form a program can compute on, not just one a person can look at. The test is simple to state: given the current state plus an action or a time step, what is the next state, and is it physically faithful?</p>
+<h2>Two lineages</h2>
+<p>Two different things both get called simulation.</p>
+<p><strong>Classical numerical simulation</strong> solves known governing equations on a mesh. Finite element, finite volume and computational fluid dynamics (CFD) are all of this kind.</p>
+<p><strong>Learned simulation</strong> uses neural networks to approximate the same dynamics, either from data or from the equations themselves.</p>
+<p>The world-models conversation is really the second eating into the first. Learned simulators are either much faster, or they work where clean equations don&#39;t exist.</p>
+<h2>Four distinctions</h2>
+<p><strong>State and observation.</strong> The true state is the full physical description needed to predict the future. An observation is a partial, noisy measurement of it. A renderer goes from state to observation. A simulator goes from state to next state.</p>
+<p><strong>Forward and inverse.</strong> A forward problem starts from the state and the rules and predicts the outcome. An inverse problem starts from the outcome and infers the state or the parameters. World-model simulators are mostly forward.</p>
+<p><strong>Physical fidelity and visual plausibility.</strong> Generated video can look right while violating conservation laws. A true simulator must be right in the state variables. This is the tension in products such as Marble, which render well but do not yet simulate.</p>
+<p><strong>Deterministic and stochastic.</strong> A deterministic simulator gives one next state for a given state and action. A stochastic one gives a distribution over next states. Noisy and chaotic systems often need the stochastic framing.</p>
+<h2>Classical methods</h2>
+<p>These are the incumbents: finite element, finite volume, finite difference and spectral methods for partial differential equations, CFD for flow, molecular dynamics at the atomic scale, and Monte Carlo for stochastic systems. They are accurate and trusted. But they are slow, and they need the equations and boundary conditions to be known in advance. In ammonia production, for example, the incumbents are process simulators such as Aspen and CFD models of the reactor.</p>
+<h2>Learned simulators</h2>
+<p>There are four main families.</p>
+<p><strong>Neural surrogates and operator learning.</strong> A physics-informed neural network (PINN) has the governing equations built into its training loss (<a href="https://doi.org/10.1016/j.jcp.2018.10.045">Raissi, Perdikaris and Karniadakis</a>, 2019). A neural operator learns the map from a problem&#39;s inputs to its solution across a whole family of problems, rather than solving one instance. The best known are the <a href="https://arxiv.org/abs/2010.08895">Fourier Neural Operator</a> (2020) and <a href="https://arxiv.org/abs/1910.03193">DeepONet</a> (2019). Once trained, they answer in milliseconds where the solver took hours.</p>
+<p><strong>Graph neural network simulators.</strong> The system is represented as particles or mesh nodes connected by edges, and each node&#39;s state is updated from its neighbours. The landmarks are DeepMind&#39;s <a href="https://arxiv.org/abs/2002.09405">Learning to Simulate</a> (2020) and <a href="https://arxiv.org/abs/2010.03409">MeshGraphNets</a> (2020). They suit fluids, deformable materials and irregular geometry.</p>
+<p><strong>Generative and sequence world models.</strong> These roll dynamics forward in a latent space, as in the Dreamer line, or bend diffusion and video predictors towards physical prediction. The gap between plausibility and fidelity bites hardest here. This family is the closest to the <a href="world-models.html">world-model taxonomy</a>.</p>
+<p><strong>Differentiable simulation.</strong> Here the classical solver itself is made differentiable, so gradients can be passed back through the physics. That allows gradient-based control, optimisation and system identification (fitting the model&#39;s parameters to measurements). It gets less attention than the others, but it matters a great deal when the goal is to optimise a process rather than only predict it.</p>
+<h2>Building one you can trust</h2>
+<p>A learned simulator goes through roughly five stages.</p>
+<ol>
+<li><strong>Governing equations and conservation laws.</strong> Start from what must be true: mass, momentum and energy are conserved. These become either the solver or the sanity checks.</li>
+<li><strong>Data generation.</strong> Learned simulators are often trained on the output of classical solvers. That needs a sampling strategy that covers the part of the state space that matters, not just the easy regions.</li>
+<li><strong>Training.</strong> The main choice is how much physics to inject. A purely data-driven model learns everything from examples. A physics-informed model has the equations in its loss. A physics-constrained model has an architecture that cannot violate certain laws. More physics built in means less data is needed and extrapolation is better. This trade-off is the central craft.</li>
+<li><strong>Validation.</strong> Check that conserved quantities are conserved. Test generalisation outside the training distribution. Watch the error over long rollouts, since small per-step errors compound. Quantify uncertainty, so it is clear when the model is guessing.</li>
+<li><strong>Deployment.</strong> A surrogate can sit inside an optimisation loop, drive model predictive control (MPC, see <a href="abbreviations.html">abbreviations</a>), or run alongside the real plant as a digital twin.</li>
+</ol>
+
+</article>
+</div>
+<footer style="text-align:center;padding:56px 0 40px;font-size:12px;color:var(--muted)">Affan Iqbal &copy; 2026</footer>
+</body></html>

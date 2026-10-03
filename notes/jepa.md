@@ -32,13 +32,7 @@ A system that has to plan needs to predict what will happen next, but not every 
 
 ## Other kinds of world model
 
-JEPA is not the only approach. The main alternatives differ in what they predict.
-
-**Generative video models** predict future frames in pixels. Google DeepMind's [Genie 3](https://deepmind.google/blog/genie-3-a-new-frontier-for-world-models/) (August 2025) generates a world from a text prompt that a user can move through in real time, at 720p and 24 frames per second, for a few minutes at a time. OpenAI's Sora report was titled [Video generation models as world simulators](https://openai.com/index/video-generation-models-as-world-simulators/) (2024), and NVIDIA's open [Cosmos](https://arxiv.org/abs/2501.03575) models (2025) generate video for training robots and self-driving cars.
-
-**Spatial, 3D world models** are the focus of World Labs, the startup founded by Fei-Fei Li (creator of ImageNet) with Justin Johnson, Christoph Lassner and Ben Mildenhall. Its first product, [Marble](https://www.worldlabs.ai/blog/marble-world-model), became generally available in November 2025. It turns text, images or video into persistent 3D environments that can be walked through, edited and exported as Gaussian splats or meshes. Li frames this as spatial intelligence: language models taught machines to read and write, and these models should teach them to see and build in three dimensions.
-
-**Latent world models** compress each observation (a video frame, say) into a small embedding, called a latent state, and learn how that state changes over time and in response to actions. "Latent" just means hidden: the model's internal summary rather than the raw pixels. An agent can then plan or practise by imagining futures inside this compact space, which is far cheaper than rendering every frame. The idea goes back to Ha and Schmidhuber's [World Models](https://arxiv.org/abs/1803.10122) (2018) and continues in Danijar Hafner's Dreamer series. [DreamerV3](https://www.nature.com/articles/s41586-025-08744-2) (Nature, 2025) was the first algorithm to collect diamonds in Minecraft from scratch, and [Dreamer 4](https://arxiv.org/abs/2509.24527) (2025) did it purely from recorded gameplay, without ever playing the game itself. JEPA world models are latent world models too. The difference is how the latent space is learned: Dreamer-style models usually learn it by also reconstructing the pixels, while JEPA learns it by prediction alone.
+JEPA is not the only approach. Generative video models predict future frames in pixels, spatial models such as Marble build 3D scenes, latent world models such as Dreamer learn a compact state by also reconstructing pixels, and learned physics simulators predict physical state directly. [World models](world-models.html) compares them.
 
 The generative approaches render the world. JEPA bets that a model only needs to predict an abstract summary of it.
 
