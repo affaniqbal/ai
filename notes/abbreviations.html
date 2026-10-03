@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI abbreviations · Affan Iqbal</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/aaaakshat/cm-web-fonts@latest/fonts.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="notes.css">
+</head><body><div class="wrap">
+<nav class="topnav"><a class="chip" href="./">&larr; Notes</a><a class="chip" href="../">Affan Iqbal</a></nav>
+<article class="note">
+<h1>AI abbreviations</h1>
+<p class="note-meta">2026-10-03 · glossary</p>
+<p>Short definitions of abbreviations that come up in these notes, in alphabetical order.</p>
+<p><strong>EMA (exponential moving average).</strong> A running average where recent values count more than old ones. In the original <a href="jepa.html">JEPA</a> models, the target encoder&#39;s weights are an EMA of the context encoder&#39;s weights, which helps stop the embeddings collapsing.</p>
+<p><strong>JEPA (Joint Embedding Predictive Architecture).</strong> Yann LeCun&#39;s proposal for learning by predicting the embedding of a missing part of the input rather than its pixels. See <a href="jepa.html">JEPA</a>.</p>
+<p><strong>LLM (large language model).</strong> A model trained on huge amounts of text to predict the next word (strictly, the next token). ChatGPT, Claude and Gemini are built on LLMs.</p>
+<p><strong>RL (reinforcement learning).</strong> Training an agent by trial and error, rewarding actions that lead to good outcomes. World models let an RL agent practise in imagination instead of in the real world.</p>
+<p><strong>SIGReg (Sketched Isotropic Gaussian Regularization).</strong> The training term introduced in <a href="https://arxiv.org/abs/2511.08544">LeJEPA</a> that pushes embeddings to spread out evenly in every direction, so they cannot collapse to a single point.</p>
+<p><strong>ViT (Vision Transformer).</strong> A transformer, the architecture behind LLMs, applied to images. It cuts an image into small square patches and treats each patch like a word in a sentence. Introduced in <a href="https://arxiv.org/abs/2010.11929">An Image is Worth 16x16 Words</a> (Google, 2020), it is now the standard image encoder, including in I-JEPA and V-JEPA.</p>
+<p><strong>VLA (vision-language-action model).</strong> A model that takes in camera images and a written instruction (&quot;put the cup in the sink&quot;) and outputs actions for a robot to carry out. Most are built by taking a VLM and training it to produce motor commands as well as text. Examples are Google DeepMind&#39;s <a href="https://arxiv.org/abs/2307.15818">RT-2</a> (2023), <a href="https://arxiv.org/abs/2406.09246">OpenVLA</a> (2024) and Physical Intelligence&#39;s <a href="https://arxiv.org/abs/2410.24164">π0</a> (2024).</p>
+<p><strong>VLM (vision-language model).</strong> A model that takes in both images and text and answers in text, such as describing a photo or answering questions about a chart.</p>
+<p><strong>WM (world model).</strong> A model that learns how an environment behaves, so it can predict what will happen next, often in response to an action. It is used in names such as LeWM (<a href="https://arxiv.org/abs/2603.19312">LeWorldModel</a>) and DINO-WM. See the world-model section of <a href="jepa.html">JEPA</a>.</p>
+
+</article>
+</div>
+<footer style="text-align:center;padding:56px 0 40px;font-size:12px;color:var(--muted)">Affan Iqbal &copy; 2026</footer>
+</body></html>

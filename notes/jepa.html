@@ -34,6 +34,52 @@
 <p><a href="https://arxiv.org/abs/2511.08544">LeJEPA</a> (November 2025, Randall Balestriero and LeCun) fixed the collapse problem properly. It drops the moving-average target encoder and adds a regulariser called SIGReg (Sketched Isotropic Gaussian Regularization), which pushes the embeddings to spread out evenly in every direction. Since the embeddings can no longer all sit at one point, collapse is ruled out by construction.</p>
 <p><a href="https://arxiv.org/abs/2603.19312">LeWorldModel</a> (LeWM, March 2026, Lucas Maes, Quentin Le Lidec, Damien Scieur, LeCun and Balestriero) applies this to world models. It is the first JEPA trained stably end to end from raw pixels, using only two terms: next-embedding prediction plus SIGReg. It needs no moving-average target encoder and no pretrained components. With 15 million parameters, it trains on a single GPU in a few hours and plans up to 48 times faster than world models built on large pretrained encoders.</p>
 <p>LeCun left Meta at the end of 2025 to found AMI Labs (Advanced Machine Intelligence) and continue this line of work.</p>
+<h2>LeWorldModel in more detail</h2>
+<p>LeWM is a small, clean example of the whole JEPA world-model idea working end to end, so it is worth walking through. This section draws on the paper and on <a href="https://aipapersacademy.com/leworldmodel/">AI Papers Academy&#39;s explainer</a>.</p>
+<h3>What it learns from</h3>
+<p>LeWM is trained on recordings of an agent acting in an environment: a sequence of camera frames plus the action taken between each pair of frames. The behaviour in the recordings doesn&#39;t need to be good, and there are no rewards or task labels. The model only has to learn how the world responds to actions, not what to do.</p>
+<h3>The model</h3>
+<p>LeWM has two parts, about 15 million parameters in total.</p>
+<ul>
+<li><strong>Encoder.</strong> A small Vision Transformer (ViT, see <a href="abbreviations.html">abbreviations</a>) turns each frame into a single 192-number embedding. A ViT normally produces one embedding per image patch, but LeWM keeps only the summary embedding for the whole image. Each frame becomes one compact vector, roughly 200 times fewer tokens than DINO-WM, an earlier world model that uses Meta&#39;s pretrained DINO encoder.</li>
+<li><strong>Predictor.</strong> A transformer takes the embeddings of the last few frames plus the actions taken, and predicts the embedding of the next frame.</li>
+</ul>
+<h3>Training</h3>
+<p>The loss has just two terms.</p>
+<ol>
+<li><strong>Prediction.</strong> The mean squared error between the predicted embedding of the next frame and the encoder&#39;s actual embedding of it.</li>
+<li><strong>SIGReg.</strong> This is the anti-collapse term from LeJEPA. It projects the batch of embeddings onto 1,024 random directions, then uses a statistical test to check whether the values along each direction look like a standard bell curve (a normal distribution). Embeddings that have collapsed to one point, or squashed into a few directions, fail the test and are penalised. That forces the embeddings to stay spread out and informative.</li>
+</ol>
+<p>The encoder and predictor are trained together with this one loss. There is no moving-average target encoder, no stop-gradient trick and no pretrained encoder, and only one weighting knob to tune, down from six in the nearest earlier end-to-end method. It trains in a few hours on a single GPU.</p>
+<h3>Planning</h3>
+<p>To reach a goal, LeWM is given an image of the goal state and encodes it. It then plans by imagination.</p>
+<ol>
+<li>Sample many candidate action sequences.</li>
+<li>For each one, roll the predictor forward step by step, entirely in embedding space, to imagine where the sequence ends up.</li>
+<li>Score each sequence by how close its imagined final embedding is to the goal embedding.</li>
+<li>Shift the sampling towards the best sequences and repeat. This is the cross-entropy method.</li>
+</ol>
+<p>The agent then carries out only the first action, looks at the new frame, and plans again. This is called model predictive control. Because each frame is a single small vector, a full plan takes about a second, against roughly 47 seconds for DINO-WM. That is where the &quot;48 times faster&quot; figure comes from.</p>
+<h3>Results</h3>
+<p>It was tested on four simulated control tasks: Two-Room (navigating between rooms), Reacher (moving an arm to a target), Push-T (pushing a T-shaped block into place) and OGBench-Cube (manipulating a cube in 3D).</p>
+<ul>
+<li>LeWM beats the baselines on Push-T and Reacher. On Push-T it beats DINO-WM even when DINO-WM is also given the robot&#39;s own position data.</li>
+<li>DINO-WM does slightly better on OGBench-Cube, the most visually complex task, where a large pretrained encoder helps.</li>
+<li>LeWM does worse on Two-Room. That environment is so simple that forcing the embeddings into a spread-out Gaussian seems to over-constrain them.</li>
+</ul>
+<h3>Does it understand physics?</h3>
+<p>Two checks suggest the embeddings capture real physical state.</p>
+<ul>
+<li><strong>Probing.</strong> A small network trained to read the block&#39;s position out of LeWM&#39;s embeddings on Push-T recovers it almost perfectly (0.999 correlation).</li>
+<li><strong>Surprise.</strong> Shown videos where something physically impossible happens, such as an object teleporting, LeWM&#39;s prediction error spikes. It is much more surprised by teleportation than by an object suddenly changing colour. So it has learned that objects move continuously, and treats colour as less important. This mirrors the violation-of-expectation tests used on human infants.</li>
+</ul>
+<h3>Limitations</h3>
+<ul>
+<li>It only plans over short horizons.</li>
+<li>It needs recorded data that covers enough of the possible interactions.</li>
+<li>It needs the actions to be labelled, which can be costly to collect.</li>
+<li>Visually complex scenes are harder without a big pretrained encoder.</li>
+</ul>
 
 </article>
 </div>
