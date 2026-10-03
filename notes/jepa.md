@@ -12,7 +12,7 @@ JEPA stands for Joint Embedding Predictive Architecture. LeCun, the French-Ameri
 
 ## Embeddings
 
-An embedding is a list of numbers (a vector) that a neural network produces to represent an input. Similar inputs end up with nearby vectors, so the numbers capture what the model has learned is important about the input rather than its raw pixels or words.
+An embedding is a list of numbers (a vector) that a neural network produces to represent an input. Similar inputs end up with nearby vectors, so the numbers capture what the model has learned is important about the input rather than its raw pixels or words. [Core concepts](concepts.html) builds this up, along with encoders and decoders.
 
 ## How JEPA works
 

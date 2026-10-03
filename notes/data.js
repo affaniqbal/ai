@@ -12,6 +12,17 @@ window.NOTES = {
     },
     {
       "type": "note",
+      "title": "Core concepts",
+      "url": "concepts.html",
+      "date": "2026-10-03",
+      "tags": [
+        "concepts",
+        "world-models"
+      ],
+      "excerpt": "The other notes lean on a small set of ideas: state, the Markov property, embeddings, encoders and decoders, loss and regularisation. This note explains them in"
+    },
+    {
+      "type": "note",
       "title": "Simulation",
       "url": "simulation.html",
       "date": "2026-10-03",

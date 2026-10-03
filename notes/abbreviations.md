@@ -20,13 +20,15 @@ Short definitions of abbreviations that come up in these notes, in alphabetical 
 
 **LLM (large language model).** A model trained on huge amounts of text to predict the next word (strictly, the next token). ChatGPT, Claude and Gemini are built on LLMs.
 
+**MDP (Markov decision process).** The standard formal model of an agent acting in a world: states, actions, the probabilities of moving between states, and rewards. See [Core concepts](concepts.html).
+
 **MPC (model predictive control).** Planning a sequence of actions with a model, carrying out only the first, then observing and planning again. [LeWorldModel](jepa.html) plans this way, and it is a common way to deploy a learned simulator.
 
 **PDE (partial differential equation).** An equation relating how a quantity changes in space and in time. Most of continuum physics (flow, heat, diffusion) is written as PDEs.
 
 **PINN (physics-informed neural network).** A neural network trained with the governing equations in its loss, so it is penalised for violating them. See [Simulation](simulation.html).
 
-**POMDP (partially observable Markov decision process).** The standard formal model of an agent that acts in a world whose full state it cannot see. It only gets partial, noisy observations. See [World models](world-models.html).
+**POMDP (partially observable Markov decision process).** The standard formal model of an agent that acts in a world whose full state it cannot see. It only gets partial, noisy observations. See [Core concepts](concepts.html).
 
 **RL (reinforcement learning).** Training an agent by trial and error, rewarding actions that lead to good outcomes. World models let an RL agent practise in imagination instead of in the real world.
 

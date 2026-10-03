@@ -6,7 +6,7 @@ tags: [world-models]
 
 # World models
 
-A world model is a system that learns how an environment behaves, so it can predict what will happen next, often in response to an action. The term covers very different things: a video generator, a physics surrogate and a robot's planner all get called world models. This note is the map. The detail lives in the notes it links to: [JEPA](jepa.html) and [Simulation](simulation.html).
+A world model is a system that learns how an environment behaves, so it can predict what will happen next, often in response to an action. The term covers very different things: a video generator, a physics surrogate and a robot's planner all get called world models. This note is the map. The detail lives in the notes it links to: [JEPA](jepa.html) and [Simulation](simulation.html). The underlying ideas (state, Markov processes, embeddings, encoders and decoders) are explained in [Core concepts](concepts.html).
 
 ## Three jobs: render, simulate, plan
 
