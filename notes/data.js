@@ -9,7 +9,7 @@ window.NOTES = {
         "jepa",
         "world-models"
       ],
-      "excerpt": "JEPA stands for Joint Embedding Predictive Architecture. It was proposed in 2022 by Yann LeCun, the French American computer scientist, while he was chief AI sc"
+      "excerpt": "Large language models are now everywhere, and they work remarkably well. But they learn by predicting the next word of text. Critics, Yann LeCun loudest among t"
     }
   ]
 };
