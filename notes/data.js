@@ -12,6 +12,18 @@ window.NOTES = {
     },
     {
       "type": "note",
+      "title": "Action encodings",
+      "url": "action-encodings.html",
+      "date": "2026-10-03",
+      "tags": [
+        "world-models",
+        "robotics",
+        "papers"
+      ],
+      "excerpt": "A note on Robot World Models Are Not Invariant to How the Actions Are Written https://arxiv.org/abs/2609.23252 Ahmed Karim and Leon Chlon, September 2026 . It s"
+    },
+    {
+      "type": "note",
       "title": "Core concepts",
       "url": "concepts.html",
       "date": "2026-10-03",
