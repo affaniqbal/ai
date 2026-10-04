@@ -63,7 +63,7 @@ A Markov decision process (MDP) is a Markov chain with an agent added. It has fo
 - **Transitions.** The probability of each next state, which now depends on the current state and the action taken.
 - **Rewards.** A number after each step that says how good the outcome was.
 
-The agent's rule for choosing an action in each state is called a **policy**. Reinforcement learning (RL, see [abbreviations](abbreviations.html)) is the search for a policy that collects as much reward as possible over time.
+The agent's rule for choosing an action in each state is called a **policy**. Reinforcement learning (RL, see [AI abbreviations](abbreviations.html)) is the search for a policy that collects as much reward as possible over time.
 
 The transitions are the part that matters most for these notes. A world model is, at its core, a learned version of the transition rule: given this state and this action, what comes next?
 

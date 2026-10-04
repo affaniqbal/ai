@@ -10,7 +10,7 @@ A world model is a system that learns how an environment behaves, so it can pred
 
 ## Three jobs: render, simulate, plan
 
-Fei-Fei Li and World Labs sort world models by what they output. The setting is the classic agent loop: an agent observes the world, acts, and the world moves to a new state. The agent never sees the full state, only partial and noisy observations of it. This is formalised as a partially observable Markov decision process (POMDP, see [abbreviations](abbreviations.html)).
+Fei-Fei Li and World Labs sort world models by what they output. The setting is the classic agent loop: an agent observes the world, acts, and the world moves to a new state. The agent never sees the full state, only partial and noisy observations of it. This is formalised as a partially observable Markov decision process (POMDP, see [AI abbreviations](abbreviations.html)).
 
 - **Renderer.** Maps state to observation. It outputs pixels for human eyes and is judged on visual fidelity.
 - **Simulator.** Maps state to next state. It outputs physically faithful state that a program can compute on.

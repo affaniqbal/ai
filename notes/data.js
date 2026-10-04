@@ -63,7 +63,19 @@ window.NOTES = {
         "jepa",
         "world-models"
       ],
-      "excerpt": "Large language models are now everywhere, and they work remarkably well. But they learn by predicting the next word of text. Critics, Yann LeCun loudest among t"
+      "excerpt": "Large language models are now everywhere, and they work remarkably well. But they learn by predicting the next word of text. Critics argue this leaves them with"
+    },
+    {
+      "type": "note",
+      "title": "LeWorldModel",
+      "url": "lewm.html",
+      "date": "2026-10-02",
+      "tags": [
+        "jepa",
+        "world-models",
+        "papers"
+      ],
+      "excerpt": "LeWorldModel LeWM is a small, clean example of the whole JEPA world model idea working end to end. It is the first JEPA trained stably end to end from raw pixel"
     }
   ]
 };

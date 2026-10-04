@@ -13,7 +13,7 @@
 <p class="note-meta">2026-10-03 · world-models</p>
 <p>A world model is a system that learns how an environment behaves, so it can predict what will happen next, often in response to an action. The term covers very different things: a video generator, a physics surrogate and a robot&#39;s planner all get called world models. This note is the map. The detail lives in the notes it links to: <a href="jepa.html">JEPA</a> and <a href="simulation.html">Simulation</a>. The underlying ideas (state, Markov processes, embeddings, encoders and decoders) are explained in <a href="concepts.html">Core concepts</a>.</p>
 <h2>Three jobs: render, simulate, plan</h2>
-<p>Fei-Fei Li and World Labs sort world models by what they output. The setting is the classic agent loop: an agent observes the world, acts, and the world moves to a new state. The agent never sees the full state, only partial and noisy observations of it. This is formalised as a partially observable Markov decision process (POMDP, see <a href="abbreviations.html">abbreviations</a>).</p>
+<p>Fei-Fei Li and World Labs sort world models by what they output. The setting is the classic agent loop: an agent observes the world, acts, and the world moves to a new state. The agent never sees the full state, only partial and noisy observations of it. This is formalised as a partially observable Markov decision process (POMDP, see <a href="abbreviations.html">AI abbreviations</a>).</p>
 <ul>
 <li><strong>Renderer.</strong> Maps state to observation. It outputs pixels for human eyes and is judged on visual fidelity.</li>
 <li><strong>Simulator.</strong> Maps state to next state. It outputs physically faithful state that a program can compute on.</li>

@@ -22,7 +22,7 @@ Short definitions of abbreviations that come up in these notes, in alphabetical 
 
 **MDP (Markov decision process).** The standard formal model of an agent acting in a world: states, actions, the probabilities of moving between states, and rewards. See [Core concepts](concepts.html).
 
-**MPC (model predictive control).** Planning a sequence of actions with a model, carrying out only the first, then observing and planning again. [LeWorldModel](jepa.html) plans this way, and it is a common way to deploy a learned simulator.
+**MPC (model predictive control).** Planning a sequence of actions with a model, carrying out only the first, then observing and planning again. [LeWorldModel](lewm.html) plans this way, and it is a common way to deploy a learned simulator.
 
 **PDE (partial differential equation).** An equation relating how a quantity changes in space and in time. Most of continuum physics (flow, heat, diffusion) is written as PDEs.
 
